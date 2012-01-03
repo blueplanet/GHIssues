@@ -5,7 +5,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GHIssues", "GHIssues\GHIssu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GHIssues.Service", "GHIssues.Service\GHIssues.Service.csproj", "{E676F376-FD77-47BB-A20D-CD72ADFC8C73}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Prism", "Prism", "{CBFAE558-0615-4E1A-99D1-FDEBECFE09B6}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lib", "Lib", "{CBFAE558-0615-4E1A-99D1-FDEBECFE09B6}"
+	ProjectSection(SolutionItems) = preProject
+		Lib\Microsoft.Expression.Interactions.dll = Lib\Microsoft.Expression.Interactions.dll
+		Lib\Microsoft.Practices.Prism.dll = Lib\Microsoft.Practices.Prism.dll
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{FCF6CD7D-7E04-410D-A233-20BA6FA58764}"
 EndProject

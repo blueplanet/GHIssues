@@ -11,12 +11,11 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
 
-namespace GHIssues
+namespace GHIssues.Views
 {
-    public partial class MainPage : PhoneApplicationPage
+    public partial class ReposView : PhoneApplicationPage
     {
-        // コンストラクター
-        public MainPage()
+        public ReposView()
         {
             InitializeComponent();
         }
