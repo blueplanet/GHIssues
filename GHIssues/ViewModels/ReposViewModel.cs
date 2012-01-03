@@ -11,7 +11,7 @@ using System.Windows.Shapes;
 
 namespace GHIssues.ViewModels
 {
-    public class ReposViewModel
+    public class ReposViewModel : ViewModel
     {
 
     }
