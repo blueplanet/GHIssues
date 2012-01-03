@@ -4,6 +4,14 @@ namespace GHIssues.ViewModels
 {
     public class ViewModel : NotificationObject
     {
+        public ViewModel()
+        {
+
+            this.LoadData();
+        }
+
+        protected virtual void LoadData() { }
+
         private bool isSynchronizing;
         public bool IsSynchronizing
         {

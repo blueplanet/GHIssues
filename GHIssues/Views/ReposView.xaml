@@ -14,6 +14,10 @@
     mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
     shell:SystemTray.IsVisible="True">
 
+    <phone:PhoneApplicationPage.DataContext>
+        <vm:ReposViewModel />
+    </phone:PhoneApplicationPage.DataContext>
+    
     <shell:SystemTray.ProgressIndicator>
         <shell:ProgressIndicator IsIndeterminate="True" IsVisible="{Binding IsSynchronizing}" />
     </shell:SystemTray.ProgressIndicator>
