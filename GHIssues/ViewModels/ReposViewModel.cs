@@ -13,6 +13,14 @@ namespace GHIssues.ViewModels
 {
     public class ReposViewModel : ViewModel
     {
+        protected override void LoadData()
+        {
+            this.IsProgress = true;
 
+
+
+
+
+        }
     }
 }

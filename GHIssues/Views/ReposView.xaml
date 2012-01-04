@@ -19,7 +19,7 @@
     </phone:PhoneApplicationPage.DataContext>
     
     <shell:SystemTray.ProgressIndicator>
-        <shell:ProgressIndicator IsIndeterminate="True" IsVisible="{Binding IsSynchronizing}" />
+        <shell:ProgressIndicator IsIndeterminate="True" IsVisible="{Binding IsProgress}" />
     </shell:SystemTray.ProgressIndicator>
     
     <!--LayoutRoot は、すべてのページ コンテンツが配置されるルート グリッドです-->

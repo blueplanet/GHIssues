@@ -12,19 +12,19 @@ namespace GHIssues.ViewModels
 
         protected virtual void LoadData() { }
 
-        private bool isSynchronizing;
-        public bool IsSynchronizing
+        private bool isProgress;
+        public bool IsProgress
         {
-            get { return this.isSynchronizing; }
+            get { return this.isProgress; }
             set
             {
-                if (this.isSynchronizing == value)
+                if (this.isProgress == value)
                 {
                     return;
                 }
 
-                this.isSynchronizing = value;
-                this.RaisePropertyChanged(() => this.isSynchronizing);
+                this.isProgress = value;
+                this.RaisePropertyChanged(() => this.isProgress);
             }
         }
     }
