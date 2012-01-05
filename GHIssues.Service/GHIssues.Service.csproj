@@ -49,6 +49,8 @@
     <Reference Include="mscorlib.extensions" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GHRequest.cs" />
+    <Compile Include="GHUri.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\Issue.cs" />
     <Compile Include="Models\Repository.cs" />
