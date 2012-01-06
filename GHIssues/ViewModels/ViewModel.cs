@@ -24,7 +24,7 @@ namespace GHIssues.ViewModels
                 }
 
                 this.isProgress = value;
-                this.RaisePropertyChanged(() => this.isProgress);
+                this.RaisePropertyChanged(() => this.IsProgress);
             }
         }
     }

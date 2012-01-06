@@ -13,6 +13,18 @@
     SupportedOrientations="Portrait" Orientation="Portrait"
     mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
     shell:SystemTray.IsVisible="True">
+	<phone:PhoneApplicationPage.Resources>
+		<DataTemplate x:Key="DataTemplate1">
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="2*"/>
+					<RowDefinition/>
+				</Grid.RowDefinitions>
+				<TextBlock Margin="0,0,1,0" TextWrapping="Wrap" Text="{Binding name}"/>
+				<TextBlock Margin="0,0,2,0" TextWrapping="Wrap" Text="{Binding description}" Grid.Row="1"/>
+			</Grid>
+		</DataTemplate>
+	</phone:PhoneApplicationPage.Resources>
 
     <phone:PhoneApplicationPage.DataContext>
         <vm:ReposViewModel />
@@ -36,7 +48,9 @@
         </StackPanel>
 
         <!--ContentPanel - 追加コンテンツをここに入力します-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0"></Grid>
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <ListBox HorizontalAlignment="Left" Margin="0,0,0,61" Width="100" ItemsSource="{Binding Items}" ItemTemplate="{StaticResource DataTemplate1}"/>
+        </Grid>
     </Grid>
  
     <!--ApplicationBar の使用法を示すサンプル コード-->

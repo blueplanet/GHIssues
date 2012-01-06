@@ -15,7 +15,7 @@ namespace GHIssues.Service
             switch (type)
             {
                 case ResourceType.User:
-                    uri = new Uri(string.Format(@"{0}/user/repos/", BASE_URL));
+                    uri = new Uri(string.Format("{0}/user/repos", BASE_URL));
                     break;
                 case ResourceType.Repository:
                     break;

@@ -12,25 +12,34 @@ namespace GHIssues.ViewModels
     {
         public ObservableCollection<Repository> Items { get; private set; }
 
+        public ReposViewModel():base()
+        {
+            this.Items = new ObservableCollection<Repository>();
+        }
+
         protected override void LoadData()
         {
             this.IsProgress = true;
 
-            HttpWebRequest req = GHRequest.Create(GHUri.Build(ResourceType.User), AppSettings.AuthInfo);
+            HttpWebRequest req = GHRequest.Create(ResourceType.User, AppSettings.AuthInfo);
+
             Observable.FromAsyncPattern<WebResponse>(req.BeginGetResponse, req.EndGetResponse)()
+                .Select(r =>
+                {
+                    using (var stream = r.GetResponseStream())
+                    {
+                        var serializer = new DataContractJsonSerializer(typeof(Repository[]));
+                        return (Repository[])serializer.ReadObject(stream);
+                    }
+                })
+                .SelectMany(x => x)
                 .ObserveOnDispatcher()
-                .Subscribe(res => DisplayData(res));
-        }
-
-        private void DisplayData(WebResponse res)
-        {
-            using (var stream = res.GetResponseStream())
-            {
-                var serializer = new DataContractJsonSerializer(typeof(Repository[]));
-                this.Items = new ObservableCollection<Repository>((Repository[])serializer.ReadObject(stream));
-            }
-
-            this.IsProgress = false;
+                .Subscribe(i =>
+                {
+                    this.IsProgress = false;
+                    this.Items.Add(i);
+                    this.RaisePropertyChanged(() => this.Items);
+                });
         }
     }
 }
