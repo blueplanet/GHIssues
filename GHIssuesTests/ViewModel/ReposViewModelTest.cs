@@ -20,12 +20,12 @@ namespace GHIssuesTests.ViewModel
                 {
                     return;
                 }
-
-                Assert.IsTrue(vm.Items.Count > 0);
+                
+                vm.Items.Is(items => items.Count > 0);
                 
                 Repository repo = vm.Items.Last();
-                Assert.IsNotNull(repo.name);
-                Assert.IsNotNull(repo.description);
+                repo.name.IsNotNull();
+                repo.description.IsNotNull();
 
                 EnqueueTestComplete();
             };
