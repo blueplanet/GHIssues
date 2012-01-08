@@ -12,6 +12,14 @@ namespace GHIssues.ViewModels
     {
         public ObservableCollection<Repository> Items { get; private set; }
 
+        public bool SettingAreConfigured
+        {
+            get
+            {
+                return !string.IsNullOrEmpty(AppSettings.User);
+            }
+        }
+
         public ReposViewModel():base()
         {
             this.Items = new ObservableCollection<Repository>();
@@ -19,6 +27,11 @@ namespace GHIssues.ViewModels
 
         protected override void LoadData()
         {
+            if (!this.SettingAreConfigured)
+            {
+                return;
+            }
+
             this.IsProgress = true;
 
             HttpWebRequest req = GHRequest.Create(ResourceType.User, AppSettings.AuthInfo);
