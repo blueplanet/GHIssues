@@ -13,17 +13,8 @@
     SupportedOrientations="Portrait" Orientation="Portrait"
     mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
     shell:SystemTray.IsVisible="True">
+    
 	<phone:PhoneApplicationPage.Resources>
-		<DataTemplate x:Key="DataTemplate1">
-			<Grid>
-				<Grid.RowDefinitions>
-					<RowDefinition Height="2*"/>
-					<RowDefinition/>
-				</Grid.RowDefinitions>
-				<TextBlock Margin="0,0,1,0" TextWrapping="Wrap" Text="{Binding name}"/>
-				<TextBlock Margin="0,0,2,0" TextWrapping="Wrap" Text="{Binding description}" Grid.Row="1"/>
-			</Grid>
-		</DataTemplate>
 	</phone:PhoneApplicationPage.Resources>
 
     <phone:PhoneApplicationPage.DataContext>
@@ -49,7 +40,16 @@
 
         <!--ContentPanel - 追加コンテンツをここに入力します-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <ListBox HorizontalAlignment="Left" Margin="0,0,0,61" Width="100" ItemsSource="{Binding Items}" ItemTemplate="{StaticResource DataTemplate1}"/>
+            <ListBox Margin="0,0,0,61" ItemsSource="{Binding Items}" >
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Margin="0,0,0,17" Height="78">
+                            <TextBlock Text="{Binding name}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
+                            <TextBlock Text="{Binding description}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
         </Grid>
     </Grid>
  
