@@ -1,12 +1,15 @@
-﻿using Microsoft.Practices.Prism.ViewModel;
+﻿using System.Windows;
+using Microsoft.Phone.Controls;
+using Microsoft.Practices.Prism.ViewModel;
 
 namespace GHIssues.ViewModels
 {
-    public class ViewModel : NotificationObject
+    public abstract class ViewModel : NotificationObject
     {
+        private PhoneApplicationFrame frame; 
+
         public ViewModel()
         {
-
             this.LoadData();
         }
 
@@ -25,6 +28,19 @@ namespace GHIssues.ViewModels
 
                 this.isProgress = value;
                 this.RaisePropertyChanged(() => this.IsProgress);
+            }
+        }
+
+        protected PhoneApplicationFrame Frame
+        {
+            get
+            {
+                if (frame == null)
+                {
+                    frame = ((App)Application.Current).RootFrame;
+                }
+
+                return frame;
             }
         }
     }

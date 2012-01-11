@@ -1,4 +1,6 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
+using System.Text;
 
 namespace GHIssues.Utils
 {
@@ -15,7 +17,12 @@ namespace GHIssues.Utils
         public static string AuthInfo
         {
             get { return store.AuthInfo; }
-            set { store.AuthInfo = value; }
+        }
+
+        public static void SetAuthInfo(string user, string password)
+        {
+            byte[] bytes = Encoding.UTF8.GetBytes(string.Format("{0}:{1}", user, password));
+            store.AuthInfo = Convert.ToBase64String(bytes);
         }
     }
 }

@@ -1,10 +1,12 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.Net;
 using System.Runtime.Serialization.Json;
 using GHIssues.Service;
 using GHIssues.Service.Models;
 using GHIssues.Utils;
 using Microsoft.Phone.Reactive;
+using Microsoft.Practices.Prism.Commands;
 
 namespace GHIssues.ViewModels
 {
@@ -20,10 +22,17 @@ namespace GHIssues.ViewModels
             }
         }
 
-        public ReposViewModel():base()
+        public ReposViewModel()
+            : base()
         {
             this.Items = new ObservableCollection<Repository>();
+
+            this.AppSettingsCommand = new DelegateCommand(
+                () => this.Frame.Navigate(new Uri("/Views/AppSettingsView.xaml", UriKind.Relative))
+            );
         }
+
+        public DelegateCommand AppSettingsCommand { get; set; }
 
         protected override void LoadData()
         {
