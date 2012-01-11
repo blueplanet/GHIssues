@@ -9,6 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lib", "Lib", "{CBFAE558-061
 	ProjectSection(SolutionItems) = preProject
 		Lib\Microsoft.Expression.Interactions.dll = Lib\Microsoft.Expression.Interactions.dll
 		Lib\Microsoft.Practices.Prism.dll = Lib\Microsoft.Practices.Prism.dll
+		Lib\Microsoft.Practices.Prism.Interactivity.dll = Lib\Microsoft.Practices.Prism.Interactivity.dll
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{FCF6CD7D-7E04-410D-A233-20BA6FA58764}"
