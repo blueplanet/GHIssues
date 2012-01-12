@@ -78,13 +78,14 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TestSupport\BaseTest.cs" />
     <Compile Include="TestSupport\ChainingAssertion.WP7.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\ReposViewModelTest.cs" />
-    <Compile Include="ViewModel\SettingViewModelTest.cs" />
+    <Compile Include="ViewModel\AppSettingsViewModelTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">

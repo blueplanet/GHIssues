@@ -44,7 +44,7 @@ namespace GHIssues.Utils
 
             try
             {
-                if (!store[key].Equals(value))
+                if (store[key] != value)
                 {
                     store[key] = value;
                     valueChanged = true;

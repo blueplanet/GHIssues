@@ -1,13 +1,14 @@
 ﻿using System.Linq;
 using GHIssues.Service.Models;
 using GHIssues.ViewModels;
+using GHIssuesTests.TestSupport;
 using Microsoft.Silverlight.Testing;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace GHIssuesTests.ViewModel
 {
     [TestClass]
-    public class ReposViewModelTest : SilverlightTest
+    public class ReposViewModelTest : BaseTest
     {
         [TestMethod]
         [Asynchronous]

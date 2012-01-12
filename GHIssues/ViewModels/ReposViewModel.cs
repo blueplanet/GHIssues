@@ -14,11 +14,19 @@ namespace GHIssues.ViewModels
     {
         public ObservableCollection<Repository> Items { get; private set; }
 
-        public bool SettingAreConfigured
+        private bool settingAreNotConfigured;
+        public bool SettingAreNotConfigured
         {
-            get
+            get { return this.settingAreNotConfigured; }
+            set
             {
-                return !string.IsNullOrEmpty(AppSettings.User);
+                if (this.settingAreNotConfigured == value)
+                {
+                    return;
+                }
+
+                this.settingAreNotConfigured = value;
+                RaisePropertyChanged(() => this.SettingAreNotConfigured);
             }
         }
 
@@ -36,7 +44,7 @@ namespace GHIssues.ViewModels
 
         protected override void LoadData()
         {
-            if (!this.SettingAreConfigured)
+            if (this.SettingAreNotConfigured)
             {
                 return;
             }
