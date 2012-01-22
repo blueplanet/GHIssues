@@ -49,10 +49,14 @@
 
         <!--ContentPanel - 追加コンテンツをここに入力します-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <StackPanel x:Name="SettingNotConfiguredPanel" Visibility="{Binding SettingNotConfigured, Mode=TwoWay, Converter={StaticResource VisibilityConverter}}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <StackPanel x:Name="SettingNotConfiguredPanel" Grid.Row="0" Visibility="{Binding SettingAreNotConfigured, Converter={StaticResource VisibilityConverter}}">
                 <TextBlock Text="Please setting user/password" />
             </StackPanel>
-            <ListBox ItemsSource="{Binding Items}" >
+            <ListBox ItemsSource="{Binding Items}" Grid.Row="1" >
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Margin="0,0,0,17" Height="78">

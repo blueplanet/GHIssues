@@ -14,6 +14,8 @@ namespace GHIssues.ViewModels
 
         protected override void LoadData()
         {
+            this.user = AppSettings.User;
+            this.password = AppSettings.AuthInfo;
         }
 
         private string user;

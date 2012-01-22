@@ -54,6 +54,11 @@
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
             <TextBlock Height="Auto" HorizontalAlignment="Left" Margin="12,6,0,0" Name="tbUser" Text="User" />
             <TextBox HorizontalAlignment="Stretch" Margin="0,28,0,0" Name="txtUser" VerticalAlignment="Top" Text="{Binding User,Mode=TwoWay}" BorderThickness="3">
+                <TextBox.InputScope>
+                    <InputScope>
+                        <InputScopeName NameValue="Password" />
+                    </InputScope>
+                </TextBox.InputScope>
                 <i:Interaction.Behaviors>
                     <prismInteractivity:UpdateTextBindingOnPropertyChanged />
                 </i:Interaction.Behaviors>

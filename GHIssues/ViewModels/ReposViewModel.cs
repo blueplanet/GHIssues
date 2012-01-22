@@ -14,19 +14,11 @@ namespace GHIssues.ViewModels
     {
         public ObservableCollection<Repository> Items { get; private set; }
 
-        private bool settingAreNotConfigured;
         public bool SettingAreNotConfigured
         {
-            get { return this.settingAreNotConfigured; }
-            set
+            get 
             {
-                if (this.settingAreNotConfigured == value)
-                {
-                    return;
-                }
-
-                this.settingAreNotConfigured = value;
-                RaisePropertyChanged(() => this.SettingAreNotConfigured);
+                return string.IsNullOrEmpty(AppSettings.User);
             }
         }
 
