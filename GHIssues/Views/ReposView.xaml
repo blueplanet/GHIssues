@@ -15,6 +15,11 @@
     SupportedOrientations="Portrait" Orientation="Portrait"
     mc:Ignorable="d" d:DesignHeight="696" d:DesignWidth="480"
     shell:SystemTray.IsVisible="True">
+	<Custom:Interaction.Triggers>
+		<Custom:EventTrigger SourceName="ContentPanel">
+			<Custom:InvokeCommandAction Command="{Binding LoadDataCommand}"/>
+		</Custom:EventTrigger>
+	</Custom:Interaction.Triggers>
     
     <phone:PhoneApplicationPage.DataContext>
         <vm:ReposViewModel />

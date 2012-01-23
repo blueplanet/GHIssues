@@ -23,16 +23,24 @@ namespace GHIssues.ViewModels
         }
 
         public ReposViewModel()
-            : base()
         {
             this.Items = new ObservableCollection<Repository>();
 
             this.AppSettingsCommand = new DelegateCommand(
                 () => this.Frame.Navigate(new Uri("/Views/AppSettingsView.xaml", UriKind.Relative))
             );
+
+            this.LoadDataCommand = new DelegateCommand(
+                () =>
+                {
+                    this.RaisePropertyChanged(() => this.SettingAreNotConfigured);
+                    this.LoadData();
+                }
+            );
         }
 
         public DelegateCommand AppSettingsCommand { get; set; }
+        public DelegateCommand LoadDataCommand { get; set; }
 
         protected override void LoadData()
         {
