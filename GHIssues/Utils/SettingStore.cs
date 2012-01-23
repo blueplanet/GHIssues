@@ -52,7 +52,7 @@ namespace GHIssues.Utils
             }
             catch (KeyNotFoundException)
             {
-                store.Add(key, valueChanged);
+                store.Add(key, value);
                 valueChanged = true;
             }
 
