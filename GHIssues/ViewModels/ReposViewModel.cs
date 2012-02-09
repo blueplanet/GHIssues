@@ -18,7 +18,7 @@ namespace GHIssues.ViewModels
         {
             get 
             {
-                return string.IsNullOrEmpty(AppSettings.User);
+                return string.IsNullOrEmpty(AppSettings.AuthInfo);
             }
         }
 

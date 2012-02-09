@@ -11,7 +11,6 @@ namespace GHIssuesTests.TestSupport
         public void Setup()
         {
             // githubのユーザ情報を設定する
-            AppSettings.User = "";
             AppSettings.SetAuthInfo("", "");
         }
     }

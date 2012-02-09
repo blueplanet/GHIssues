@@ -1,5 +1,9 @@
 ﻿using GHIssues.Utils;
 using Microsoft.Practices.Prism.Commands;
+using System.Net;
+using Microsoft.Phone.Reactive;
+using GHIssues.Service;
+using System.Windows;
 
 namespace GHIssues.ViewModels
 {
@@ -55,10 +59,44 @@ namespace GHIssues.ViewModels
 
         private void Save()
         {
-            AppSettings.User = this.User;
             AppSettings.SetAuthInfo(this.User, this.Password);
 
-            GoBack();
+            CheckAuthInfo();
+        }
+
+        private void CheckAuthInfo()
+        {
+            this.IsProgress = true;
+
+            HttpWebRequest req = GHRequest.Create(ResourceType.User, AppSettings.AuthInfo);
+            Observable.FromAsyncPattern<WebResponse>(req.BeginGetResponse, req.EndGetResponse)()
+                .Select(res => res)
+                .ObserveOnDispatcher()
+                .Subscribe(status =>
+                {
+                    this.IsProgress = false;
+
+                    bool isOk = ((HttpWebResponse)status).StatusCode == HttpStatusCode.OK;
+                    if (isOk)
+                    {
+                        GoBack();
+                    }
+                    else
+                    {
+                        ShowError();
+                    }
+                },
+                e =>
+                {
+                    this.IsProgress = false;
+                    ShowError();
+                });
+        }
+
+        private void ShowError()
+        {
+            MessageBox.Show("ユーザまたはパスワードが間違いました。ご確認ください。");
+            AppSettings.SetAuthInfo(this.user, string.Empty);
         }
 
         private bool CanSave()

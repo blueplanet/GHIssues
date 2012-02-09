@@ -11,7 +11,6 @@ namespace GHIssues.Utils
         public static string User
         {
             get { return store.User; }
-            set { store.User = value; }
         }
 
         public static string AuthInfo
@@ -21,8 +20,17 @@ namespace GHIssues.Utils
 
         public static void SetAuthInfo(string user, string password)
         {
-            byte[] bytes = Encoding.UTF8.GetBytes(string.Format("{0}:{1}", user, password));
-            store.AuthInfo = Convert.ToBase64String(bytes);
+            store.User = user;
+
+            if (string.IsNullOrEmpty(password))
+            {
+                store.AuthInfo = string.Empty;
+            }
+            else
+            {
+                byte[] bytes = Encoding.UTF8.GetBytes(string.Format("{0}:{1}", user, password));
+                store.AuthInfo = Convert.ToBase64String(bytes);
+            }
         }
     }
 }
