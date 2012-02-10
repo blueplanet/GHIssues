@@ -1,4 +1,5 @@
-﻿
+﻿using System;
+
 namespace GHIssues.Service.Models
 {
     public class Issue
@@ -7,7 +8,7 @@ namespace GHIssues.Service.Models
         public string title { get; set; }
         public string body { get; set; }
         public int commits { get; set; }
-        public string created_at { get; set; }
-        public string updated_at { get; set; }
+        public DateTime created_at { get; set; }
+        public DateTime updated_at { get; set; }
     }
 }

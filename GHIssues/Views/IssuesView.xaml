@@ -6,20 +6,46 @@
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:vm="clr-namespace:GHIssues.ViewModels"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
     mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
     shell:SystemTray.IsVisible="True">
-
-    <phone:PhoneApplicationPage.DataContext>
-        <vm:IssuesViewModel x:Name="ViewModel" />
-    </phone:PhoneApplicationPage.DataContext>
+	<phone:PhoneApplicationPage.Resources>
+		<DataTemplate x:Key="IssueTemplate">
+			<Grid Height="80" Width="459">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="0.78*"/>
+					<ColumnDefinition Width="0.105*"/>
+					<ColumnDefinition Width="0.115*"/>
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="40"/>
+					<RowDefinition/>
+				</Grid.RowDefinitions>
+				<TextBlock x:Name="name" Text="{Binding title}" FontWeight="Bold" FontSize="26.667" Margin="10,0">
+					<TextBlock.Foreground>
+						<SolidColorBrush Color="{StaticResource PhoneForegroundColor}"/>
+					</TextBlock.Foreground>
+				</TextBlock>
+				<TextBlock x:Name="comments" Text="{Binding commits}" Margin="0,0,8,0" VerticalAlignment="Center" Grid.Row="1" Grid.Column="2" d:LayoutOverrides="Width" HorizontalAlignment="Right">
+					<TextBlock.Foreground>
+						<SolidColorBrush Color="{StaticResource PhoneAccentColor}"/>
+					</TextBlock.Foreground>
+				</TextBlock>
+				<TextBlock x:Name="body" Text="{Binding body}" Grid.Row="1" Margin="10,0,0,0" Grid.ColumnSpan="2" TextTrimming="WordEllipsis">
+					<TextBlock.Foreground>
+						<SolidColorBrush Color="{StaticResource PhoneSubtleColor}"/>
+					</TextBlock.Foreground>
+				</TextBlock>
+                <TextBlock x:Name="updated" Text="{Binding updated_at,Converter={StaticResource DateTimeConverter}}" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Left"/>
+			</Grid>
+		</DataTemplate>
+	</phone:PhoneApplicationPage.Resources>
     
     <!--LayoutRoot は、すべてのページ コンテンツが配置されるルート グリッドです-->
-    <Grid x:Name="LayoutRoot" Background="Transparent">
+    <Grid x:Name="LayoutRoot" Background="Transparent" d:DataContext="{d:DesignData /SampleData/IssuesViewModelSampleData.xaml}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -32,7 +58,8 @@
         </StackPanel>
 
         <!--ContentPanel - 追加コンテンツをここに入力します-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0"></Grid>
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+        	<ListBox ItemTemplate="{StaticResource IssueTemplate}" ItemsSource="{Binding Items}"/></Grid>
     </Grid>
  
     <!--ApplicationBar の使用法を示すサンプル コード-->

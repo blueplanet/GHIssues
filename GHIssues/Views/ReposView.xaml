@@ -62,6 +62,11 @@
                 <TextBlock Text="Please setting user/password" />
             </StackPanel>
             <ListBox ItemsSource="{Binding Items}" Grid.Row="1" SelectedIndex="{Binding SelectedIndex,Mode=TwoWay}" >
+            	<Custom:Interaction.Triggers>
+            		<Custom:EventTrigger EventName="SelectionChanged">
+            			<Custom:InvokeCommandAction Command="{Binding DisplayIssuesCommand, Mode=TwoWay}"/>
+            		</Custom:EventTrigger>
+            	</Custom:Interaction.Triggers>
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Margin="0,0,0,17" Height="78">

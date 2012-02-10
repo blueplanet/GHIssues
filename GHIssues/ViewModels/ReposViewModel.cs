@@ -82,7 +82,7 @@ namespace GHIssues.ViewModels
 
             this.IsProgress = true;
 
-            HttpWebRequest req = GHRequest.Create(ResourceType.User, AppSettings.AuthInfo);
+            HttpWebRequest req = GHRequest.Create(AppSettings.AuthInfo, ResourceType.User);
 
             Observable.FromAsyncPattern<WebResponse>(req.BeginGetResponse, req.EndGetResponse)()
                 .Select(r =>

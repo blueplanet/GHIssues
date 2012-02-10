@@ -1,0 +1,9 @@
+﻿<GHIssues_ViewModels:IssuesViewModel xmlns:GHIssues_ViewModels="clr-namespace:GHIssues.ViewModels" xmlns:GHIssues_Service_Models="clr-namespace:GHIssues.Service.Models;assembly=GHIssues.Service" IsProgress="True">
+	<GHIssues_ViewModels:IssuesViewModel.Items>
+		<GHIssues_Service_Models:Issue body="Nam cras" commits="98" created_at="2011/01/01" state="Aliquam praesent" title="Integer curabitur vestibulum nunc" updated_at="2011/09/11"/>
+		<GHIssues_Service_Models:Issue body="Amet accumsan parturient vestibulum" commits="69" created_at="2011/11/02" state="Vestibulum dis bibendum curae aliquam" title="Donec adipiscing etiam mauris nullam" updated_at="2012/01/01"/>
+		<GHIssues_Service_Models:Issue body="Aliquet arcu parturient" commits="76" created_at="2011/03/11" state="Cursus vestibulum blandit diam" title="Dictum adipiscing eget consequat hac" updated_at="2011/10/10"/>
+		<GHIssues_Service_Models:Issue body="Dictumst eleifend commodo parturient" commits="37" created_at="2011/04/15" state="Erat vestibulum facilisi faucibus nec" title="Non eros libero per habitant" updated_at="2011/10/20"/>
+		<GHIssues_Service_Models:Issue body="Nulla dignissim" commits="74" created_at="2011/05/25" state="Vestibulum augue luctus dolor magnis" title="Elementum sem" updated_at="2011/11/25"/>
+	</GHIssues_ViewModels:IssuesViewModel.Items>
+</GHIssues_ViewModels:IssuesViewModel>

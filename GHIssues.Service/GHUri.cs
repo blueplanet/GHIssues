@@ -8,7 +8,7 @@ namespace GHIssues.Service
 
         public const string METHOD_GET = "GET";
 
-        public static Uri Build(ResourceType type)
+        public static Uri Build(ResourceType type, params string[] info)
         {
             Uri uri = null;
 
@@ -20,6 +20,7 @@ namespace GHIssues.Service
                 case ResourceType.Repository:
                     break;
                 case ResourceType.Issue:
+                    uri = new Uri(string.Format("{0}/repos/{1}/{2}/issues", BASE_URL, info[0], info[1]));
                     break;
                 case ResourceType.Comment:
                     break;

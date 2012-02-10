@@ -1,4 +1,5 @@
 ﻿using System.Windows.Navigation;
+using GHIssues.ViewModels;
 using Microsoft.Phone.Controls;
 
 namespace GHIssues.Views
@@ -17,7 +18,11 @@ namespace GHIssues.Views
             if (NavigationContext.QueryString.ContainsKey("repo"))
             {
                 string repo = NavigationContext.QueryString["repo"];
-                this.ViewModel.LoadIssues(repo);
+                IssuesViewModel vm = new IssuesViewModel();
+
+                vm.LoadIssues(repo);
+
+                this.DataContext = vm;
             }
         }
     }

@@ -11,6 +11,7 @@
     <Application.Resources>
         <system:String x:Key="AppName">GHIssues</system:String>
         <convert:VisibilityConverter x:Key="VisibilityConverter" />
+        <convert:DateTimeConverter x:Key="DateTimeConverter" />
     </Application.Resources>
 
     <Application.ApplicationLifetimeObjects>

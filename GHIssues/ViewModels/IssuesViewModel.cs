@@ -5,6 +5,7 @@ using GHIssues.Service;
 using GHIssues.Service.Models;
 using GHIssues.Utils;
 using Microsoft.Phone.Reactive;
+using System.Windows;
 
 namespace GHIssues.ViewModels
 {
@@ -19,7 +20,7 @@ namespace GHIssues.ViewModels
 
             public void LoadIssues(string repo)
             {
-                WebRequest req = GHRequest.Create(ResourceType.Issue, AppSettings.AuthInfo);
+                WebRequest req = GHRequest.Create(AppSettings.AuthInfo, ResourceType.Issue, AppSettings.User, repo);
                 Observable.FromAsyncPattern<WebResponse>(req.BeginGetResponse, req.EndGetResponse)()
                     .Select(r =>
                     {
@@ -36,7 +37,10 @@ namespace GHIssues.ViewModels
                         this.IsProgress = false;
                         this.Items.Add(i);
                         this.RaisePropertyChanged(() => this.Items);
-                    });
+                    },
+                    ex =>
+                    {
+                    } );
         }
     }
 }
