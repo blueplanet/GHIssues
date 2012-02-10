@@ -8,13 +8,6 @@ namespace GHIssues.ViewModels
     {
         private PhoneApplicationFrame frame; 
 
-        public ViewModel()
-        {
-            this.LoadData();
-        }
-
-        protected virtual void LoadData() { }
-
         private bool isProgress;
         public bool IsProgress
         {

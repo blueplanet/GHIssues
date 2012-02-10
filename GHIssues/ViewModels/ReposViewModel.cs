@@ -14,6 +14,22 @@ namespace GHIssues.ViewModels
     {
         public ObservableCollection<Repository> Items { get; private set; }
 
+        private int selectedIndex;
+        public int SelectedIndex
+        {
+            get { return this.selectedIndex; }
+            set
+            {
+                if (this.selectedIndex == value)
+                {
+                    return;
+                }
+
+                this.selectedIndex = value;
+                RaisePropertyChanged(() => this.SelectedIndex);
+            }
+        }
+
         public bool SettingAreNotConfigured
         {
             get 
@@ -24,6 +40,7 @@ namespace GHIssues.ViewModels
 
         public ReposViewModel()
         {
+            this.SelectedIndex = -1;
             this.Items = new ObservableCollection<Repository>();
 
             this.AppSettingsCommand = new DelegateCommand(
@@ -37,12 +54,26 @@ namespace GHIssues.ViewModels
                     this.LoadData();
                 }
             );
+
+            this.DisplayIssuesCommand = new DelegateCommand(
+                () =>
+                {
+                    Repository repo = this.Items[this.SelectedIndex];
+                    this.Frame.Navigate(new Uri("/Views/IssuesView.xaml?repo=" + repo.name, UriKind.Relative));
+                    this.SelectedIndex = -1;
+                },
+                () =>
+                {
+                    return this.SelectedIndex != -1;
+                }
+            );
         }
 
         public DelegateCommand AppSettingsCommand { get; set; }
         public DelegateCommand LoadDataCommand { get; set; }
+        public DelegateCommand DisplayIssuesCommand { get; set; }
 
-        protected override void LoadData()
+        protected void LoadData()
         {
             if (this.SettingAreNotConfigured)
             {

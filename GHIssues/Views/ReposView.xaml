@@ -61,7 +61,7 @@
             <StackPanel x:Name="SettingNotConfiguredPanel" Grid.Row="0" Visibility="{Binding SettingAreNotConfigured, Converter={StaticResource VisibilityConverter}}">
                 <TextBlock Text="Please setting user/password" />
             </StackPanel>
-            <ListBox ItemsSource="{Binding Items}" Grid.Row="1" >
+            <ListBox ItemsSource="{Binding Items}" Grid.Row="1" SelectedIndex="{Binding SelectedIndex,Mode=TwoWay}" >
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Margin="0,0,0,17" Height="78">

@@ -83,11 +83,15 @@
     <Compile Include="Utils\DesignSettingStore.cs" />
     <Compile Include="Utils\ISettingStore.cs" />
     <Compile Include="Utils\SettingStore.cs" />
+    <Compile Include="ViewModels\IssuesViewModel.cs" />
     <Compile Include="ViewModels\ReposViewModel.cs" />
     <Compile Include="ViewModels\AppSettingsViewModel.cs" />
     <Compile Include="ViewModels\ViewModel.cs" />
     <Compile Include="Views\AppSettingsView.xaml.cs">
       <DependentUpon>AppSettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\IssuesView.xaml.cs">
+      <DependentUpon>IssuesView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ReposView.xaml.cs">
       <DependentUpon>ReposView.xaml</DependentUpon>
@@ -99,6 +103,10 @@
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
     <Page Include="Views\AppSettingsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\IssuesView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

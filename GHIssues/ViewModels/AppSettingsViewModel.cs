@@ -1,9 +1,9 @@
-﻿using GHIssues.Utils;
-using Microsoft.Practices.Prism.Commands;
-using System.Net;
-using Microsoft.Phone.Reactive;
-using GHIssues.Service;
+﻿using System.Net;
 using System.Windows;
+using GHIssues.Service;
+using GHIssues.Utils;
+using Microsoft.Phone.Reactive;
+using Microsoft.Practices.Prism.Commands;
 
 namespace GHIssues.ViewModels
 {
@@ -14,10 +14,7 @@ namespace GHIssues.ViewModels
         {
             this.SaveCommand = new DelegateCommand(this.Save);
             this.CancelCommand = new DelegateCommand(this.Cancel);
-        }
 
-        protected override void LoadData()
-        {
             this.user = AppSettings.User;
             this.password = AppSettings.AuthInfo;
         }
