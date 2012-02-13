@@ -29,7 +29,7 @@
 						<SolidColorBrush Color="{StaticResource PhoneForegroundColor}"/>
 					</TextBlock.Foreground>
 				</TextBlock>
-				<TextBlock x:Name="comments" Text="{Binding commits}" Margin="0,0,8,0" VerticalAlignment="Center" Grid.Row="1" Grid.Column="2" d:LayoutOverrides="Width" HorizontalAlignment="Right">
+                <TextBlock x:Name="comments" Text="{Binding comments, Converter={StaticResource NumberToStringConverter}}" Margin="0,0,8,0" VerticalAlignment="Center" Grid.Row="1" Grid.Column="2" d:LayoutOverrides="Width" HorizontalAlignment="Right">
 					<TextBlock.Foreground>
 						<SolidColorBrush Color="{StaticResource PhoneAccentColor}"/>
 					</TextBlock.Foreground>

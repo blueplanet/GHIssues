@@ -100,7 +100,9 @@ namespace GHIssues.ViewModels
                     this.IsProgress = false;
                     this.Items.Add(i);
                     this.RaisePropertyChanged(() => this.Items);
-                });
+                },
+                e => { }
+                );
         }
     }
 }
