@@ -64,7 +64,7 @@
             <ListBox ItemsSource="{Binding Items}" Grid.Row="1" SelectedIndex="{Binding SelectedIndex,Mode=TwoWay}" >
             	<Custom:Interaction.Triggers>
             		<Custom:EventTrigger EventName="SelectionChanged">
-            			<Custom:InvokeCommandAction Command="{Binding DisplayIssuesCommand, Mode=TwoWay}"/>
+                        <Custom:InvokeCommandAction Command="{Binding SelectionChangedCommand, Mode=TwoWay}"/>
             		</Custom:EventTrigger>
             	</Custom:Interaction.Triggers>
                 <ListBox.ItemTemplate>

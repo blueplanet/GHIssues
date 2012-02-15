@@ -19,7 +19,10 @@ namespace GHIssues.Service
                     break;
                 case ResourceType.Repository:
                     break;
-                case ResourceType.Issue:
+                case ResourceType.IssueDetail:
+                    uri = new Uri(string.Format("{0}/repos/{1}/{2}/issues/{3}", BASE_URL, info[0], info[1], info[2]));
+                    break;
+                case ResourceType.Issues:
                     uri = new Uri(string.Format("{0}/repos/{1}/{2}/issues", BASE_URL, info[0], info[1]));
                     break;
                 case ResourceType.Comment:
@@ -36,7 +39,8 @@ namespace GHIssues.Service
     {
         User = 0,
         Repository,
-        Issue,
+        IssueDetail,
+        Issues,
         Comment
     }
 

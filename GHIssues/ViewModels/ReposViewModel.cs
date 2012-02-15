@@ -55,7 +55,7 @@ namespace GHIssues.ViewModels
                 }
             );
 
-            this.DisplayIssuesCommand = new DelegateCommand(
+            this.SelectionChangedCommand = new DelegateCommand(
                 () =>
                 {
                     Repository repo = this.Items[this.SelectedIndex];
@@ -71,7 +71,7 @@ namespace GHIssues.ViewModels
 
         public DelegateCommand AppSettingsCommand { get; set; }
         public DelegateCommand LoadDataCommand { get; set; }
-        public DelegateCommand DisplayIssuesCommand { get; set; }
+        public DelegateCommand SelectionChangedCommand { get; set; }
 
         protected void LoadData()
         {
