@@ -31,12 +31,12 @@
     
     <phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar IsVisible="True">
-            <shell:ApplicationBarIconButton IconUri="/icons/appbar.feature.settings.rest.png" Text="Settings"/>
+            <shell:ApplicationBarIconButton IconUri="/icons/appbar.feature.settings.rest.png" Text="設定"/>
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>
 
     <Custom:Interaction.Behaviors>
-        <prismInteractivity:ApplicationBarButtonCommand ButtonText="Settings" CommandBinding="{Binding AppSettingsCommand}" />
+        <prismInteractivity:ApplicationBarButtonCommand ButtonText="設定" CommandBinding="{Binding AppSettingsCommand}" />
     </Custom:Interaction.Behaviors>
 
     <!--LayoutRoot は、すべてのページ コンテンツが配置されるルート グリッドです-->
@@ -59,7 +59,7 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <StackPanel x:Name="SettingNotConfiguredPanel" Grid.Row="0" Visibility="{Binding SettingAreNotConfigured, Converter={StaticResource VisibilityConverter}}">
-                <TextBlock Text="Please setting user/password" />
+                <TextBlock Text="下の設定ボタンによりユーザとパスワードを設定してからお使いください。" TextWrapping="Wrap" />
             </StackPanel>
             <ListBox ItemsSource="{Binding Items}" Grid.Row="1" SelectedIndex="{Binding SelectedIndex,Mode=TwoWay}" >
             	<Custom:Interaction.Triggers>

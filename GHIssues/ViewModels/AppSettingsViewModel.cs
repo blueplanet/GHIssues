@@ -80,19 +80,19 @@ namespace GHIssues.ViewModels
                     }
                     else
                     {
-                        ShowError();
+                        ShowError("ユーザまたはパスワードが間違いました。ご確認ください。");
                     }
                 },
                 e =>
                 {
                     this.IsProgress = false;
-                    ShowError();
+                    ShowError("エラーが発生しました\n" + e.Message);
                 });
         }
 
-        private void ShowError()
+        private void ShowError(string msg)
         {
-            MessageBox.Show("ユーザまたはパスワードが間違いました。ご確認ください。");
+            MessageBox.Show(msg);
             AppSettings.SetAuthInfo(this.user, string.Empty);
         }
 
