@@ -34,9 +34,13 @@
         		<RowDefinition Height="40"/>
         		<RowDefinition Height="*"/>
         	</Grid.RowDefinitions>
-        	<TextBlock Text="{Binding Title}" VerticalAlignment="Center" TextTrimming="WordEllipsis" FontWeight="Bold" FontSize="26.667"/>
-        	<TextBlock Text="{Binding State}" Grid.Column="1" VerticalAlignment="Center"/>
-        	<TextBlock Text="{Binding Body}" Grid.Row="1" Grid.ColumnSpan="2" TextWrapping="Wrap"/>
+        	<TextBlock x:Name="title" Text="{Binding Title}" VerticalAlignment="Center" TextTrimming="WordEllipsis" FontWeight="Bold" FontSize="26.667"/>
+        	<TextBlock x:Name="state" Text="{Binding State}" Grid.Column="1" VerticalAlignment="Center"/>
+        	<TextBlock x:Name="body" Text="{Binding Body}" Grid.Row="1" Grid.ColumnSpan="2" TextWrapping="Wrap">
+        		<TextBlock.Foreground>
+        			<SolidColorBrush Color="{StaticResource PhoneSubtleColor}"/>
+        		</TextBlock.Foreground>
+        	</TextBlock>
         </Grid>
 
         <!--ContentPanel - 追加コンテンツをここに入力します-->
